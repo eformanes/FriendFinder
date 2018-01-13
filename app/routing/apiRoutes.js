@@ -34,7 +34,17 @@ module.exports = function(app) {
     // Step 1)  Pull Scores for each friend (1st loop)
     // Step 2)  Absolute value difference for the last entry (newest friend) and all previous entries and store in compareResults array
     // Step 3)  Find lowest value and return the object
-    console.log(newFriendRequest);
+    
+    //TRYING TO FIGURE OUT WHAT ARRAY IS CALLED!!!!
+    // for(var key in newFriendRequest){
+    //   //console.log(newFriendRequest[key]);
+    //   console.log(key);
+    // }
+    
+    console.log(newFriendRequest['scores[]']);
+    //  How to address the array in the object!!!!!!!!!!
+    //  NEED TO USE BRACKET NOTATION!!!!!!!!!!
+    //console.log(newFriendRequest['scores[]']);
 
     // for(var i=0; i < friendData.length - 1;i++){
         
