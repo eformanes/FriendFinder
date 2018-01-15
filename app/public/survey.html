@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy"
                 crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -139,7 +141,37 @@
 
                 <br>
                 <br>
-                <button type="submit" class="btn btn-primary btn-lg btn-block" id="submitBtn">Submit</button>
+                <!-- <button type="submit" class="btn btn-primary btn-lg btn-block" id="submitBtn">Submit</button> -->
+                <button type="button" class="btn btn-primary btn-lg btn-block" id="submitBtn" data-toggle="modal" data-target="#myModal">Submit</button>
+
+                <!-- Modal section -->
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        Launch demo modal
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                        <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Meet your new Best Friend!</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                </button>
+                                        </div>
+                                        <div class="modal-body">
+                                                ...
+                                        </div>
+                                        <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+
+
+
         </div>
 
 
@@ -175,8 +207,8 @@
                                 $("#question9").val(),
                                 $("#question10").val()
                         ]
-                        
-                    
+
+
                 };
 
                 console.log(newFriend);
@@ -191,30 +223,36 @@
 
                                 // If a table is available... tell user they are booked.
                                 if (data) {
-                                        alert("Yay! You are officially booked!");
+                                        alert("You have a friend!");
+                                        console.log(data.name);
+                                        console.log(data.photo);
                                 }
 
                                 // If a table is available... tell user they on the waiting list.
                                 else {
-                                        alert("Sorry you are on the wait list");
+                                        alert("Sorry, an error occured");
                                 }
 
                                 // Clear the form when submitting
                                 $("#name").val("");
                                 $("#photoLink").val("");
-                                $("#question1").val("");
-                                $("#question2").val("");
-                                $("#question3").val("");
-                                $("#question4").val("");
-                                $("#question5").val("");
-                                $("#question6").val("");
-                                $("#question7").val("");
-                                $("#question8").val("");
-                                $("#question9").val("");
-                                $("#question10").val("");
-                                
+                                // Set the default value to the first selection
+                                $("#question1").val("1");
+                                $("#question2").val("1");
+                                $("#question3").val("1");
+                                $("#question4").val("1");
+                                $("#question5").val("1");
+                                $("#question6").val("1");
+                                $("#question7").val("1");
+                                $("#question8").val("1");
+                                $("#question9").val("1");
+                                $("#question10").val("1");
+
                         });
 
         });
 
 </script>
+
+
+
