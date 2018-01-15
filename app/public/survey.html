@@ -141,17 +141,14 @@
 
                 <br>
                 <br>
-                <!-- <button type="submit" class="btn btn-primary btn-lg btn-block" id="submitBtn">Submit</button> -->
-                <button type="button" class="btn btn-primary btn-lg btn-block" id="submitBtn" data-toggle="modal" data-target="#myModal">Submit</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block" id="submitBtn">Submit</button>
+                <!-- <button type="button" class="btn btn-primary btn-lg btn-block" id="submitBtn" data-toggle="modal" data-target="#friendModal">Submit</button> -->
 
                 <!-- Modal section -->
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                        Launch demo modal
-                </button>
+                
 
                 <!-- Modal -->
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="friendModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                         <div class="modal-header">
@@ -161,7 +158,8 @@
                                                 </button>
                                         </div>
                                         <div class="modal-body">
-                                                ...
+                                                <h2 id="bestFriendName">Best Friend Name</h2>
+                                                <img id="bestFriendImage" src="https://i.pinimg.com/736x/c3/35/6f/c3356f40848fa5fd90a96f46142664f7--puppy-patrol-yorkie-puppies.jpg" class="img-fluid" alt="Friend image">
                                         </div>
                                         <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -221,11 +219,19 @@
                 $.post("/api/friends", newFriend,
                         function (data) {
 
-                                // If a table is available... tell user they are booked.
+                                // Friends api returns a friend object for data
                                 if (data) {
-                                        alert("You have a friend!");
+                                        //alert("You have a friend!");
+                                        // Possible to trigger model from here?
+
                                         console.log(data.name);
                                         console.log(data.photo);
+                                        // Update Modal body with response from data call
+                                        $("#bestFriendName").html(data.name);
+                                        $("#bestFriendImage").attr("src", data.photo);
+
+                                        // Show modal
+                                        $('#friendModal').modal('show');
                                 }
 
                                 // If a table is available... tell user they on the waiting list.
