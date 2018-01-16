@@ -1,7 +1,7 @@
 
 
 //  Array that holds friends (name, photo URL, survey answers)
-//  Odd bracket notation used due to really odd behavior that posting an array within survey.html names the array with the bracket notation.  Need this to be consistent with what is posted by the API.
+//  Odd bracket for scores arraynotation used due to really odd behavior that posting an array within survey.html names the array with the bracket notation.  Need this to be consistent with what is posted by the API in order to loop through the survey result.
 var friendsArray = [
 {
     "name":"eee",

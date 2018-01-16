@@ -1,34 +1,26 @@
-// ===============================================================================
-// DEPENDENCIES
-// We need to include the path package to get the correct file path for our html
-// ===============================================================================
+// Dependencies
 var path = require("path");
 var friendData = require("../data/friends.js");
 
-
-// ===============================================================================
-// ROUTING
-// ===============================================================================
-
+// Export routes to be used in server.js Express server.
 module.exports = function(app) {
     // ROUTING NOTES
     // survey => submit button grabs survey data calls script => post to /api/friends => 
-    // Post api/friends adds new friend to the friendData array=> 
-    // Figure out logic for friend match =>  Return best match friend object
-    // =>  Display modal
+    // Post api/friends takes in user survey form and finds best friend match =>
+    // Post api/friends also adds new friend to the friendData array => 
+    // Post api/friends returns best match friend object =>  Return best match friend object
+    // jQuery to update modal body/contents =>  Display modal
 
+  // Get /api/friends call returns friend array
   app.get("/api/friends", function(req, res) {
-    //res.sendFile(path.join(__dirname, "../public/home.html"));
     res.json(friendData);
 });
 
+  // Find best friend match, add new friend to array, return best match
   app.post("/api/friends", function(req, res) {
-    //res.sendFile(path.join(__dirname, "../public/survey.html"));
-    
+    //  Assign request
     var newFriendRequest = req.body;
 
-    //initialize compareResults array
-    //var compareResultsArray = [];
 
     //Logic to find friend
     // Step 1)  Pull Scores for each friend (1st loop)
@@ -59,7 +51,7 @@ var currentBestFriendIndex = 0;
 // initialize the bestFriendDifference score
 var bestFriendScore = 999;
 
-// I is the current friend for comparison	
+// i is the current friend for comparison	
 for(var i= 0; i<friendData.length; i++){
 	//initialize totalDifference for each friend
 	var totalDifference = 0;
